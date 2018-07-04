@@ -1,0 +1,97 @@
+﻿@using System.Linq;
+@using Livis.Market.Utilities.Helper;
+@model Livis.Market.Data.CartView
+@if (Model != null)
+{
+    decimal totalCart = 0;
+    var lineItems = Model.Forms.First().Shipment.First().LineItems;
+    <table class="cart-table" id="LargeCart">
+        <thead>
+            <tr>
+                <th>Delete</th>
+                <th></th>
+                <th class="cart-name">Product name</th>
+                <th>Price</th>
+                <th>QUANTITY</th>
+                <th>TOTAL</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @{
+                foreach (var shipmentItem in Model.Forms.First().Shipment)
+                {
+                    foreach (var item in shipmentItem.LineItems)
+                    {
+                        totalCart += item.Quantity * item.PlacedPrice;
+                        <tr class="cart-row">
+                            <td class="td-remove">
+
+                                @using (Html.BeginForm("DeleteLineItem", "Shopping", FormMethod.Post, new { data_container = "LargeCart" }))
+                                {
+                                    @Html.Hidden("sku", item.Sku);
+                                    @Html.Hidden("variantId", item.VariantId);
+                                    <a class="btn-remove jsRemoveToCart" href="">×</a>
+                                }
+                            </td>
+                            <td data-title="@item.DisplayName" class="cart-item-image">
+                                <img width="85" height="85" src="@item.ImageUrl" alt="">
+                            </td>
+                            <td class="hidden-sm-down">
+                                <h4>
+                                    <b>@item.DisplayName</b>
+                                </h4>
+                            </td>
+                            <td class="hidden-sm-down">
+                                <h3 class="subtitle text-regular">
+                                    @String.Format("{0}{1} {2}", ComponentsHelper.Currency[Model.Currency], item.PlacedPrice.ToString("G29"), Model.Currency)
+                                </h3>
+                            </td>
+                            <td class="cart-item-bar">
+                                @using (Html.BeginForm("ChangeQuantity", "Shopping", FormMethod.Post, new { data_container = "LargeCart" }))
+                                {
+                                    @Html.Hidden("sku", item.Sku);
+                                    @Html.Hidden("variantId", item.VariantId);
+                                    @Html.Hidden("bkQuantity", item.Quantity);
+                                    <input type="number" class="form-control input-sm form-input jsQuantity" value="@String.Format("{0:0}", item.Quantity)" name="quantity" id="qty-@item.Sku-@item.VariantId">
+                                }
+                            </td>
+                            <td class="hidden-sm-down">
+                                <h3 class="subtitle">  @String.Format("{0}{1} {2}", ComponentsHelper.Currency[Model.Currency], item.ExtendedPrice.ToString("G29"), Model.Currency) </h3>
+                            </td>
+                        </tr>
+                    }
+                }
+            }
+        </tbody>
+        <tbody class="table-footer">
+            <tr>
+                <td colspan="3" rowspan="7" class="hidden-sm-down"></td>
+                <td colspan="3">
+                    <div class="table-footer-row">
+                        <span class="lead-md">Product total price</span>
+                        <h3 class="subtitle" id="totalPriceCart">
+                            @String.Format("{0}{1} {2}", ComponentsHelper.Currency[Model.Currency], totalCart.ToString("G29"), Model.Currency)
+                        </h3>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="confirmatin-box text-center">
+        <div class="text-center">
+            <p>
+                <strong>
+                    If you are satisfied with the above information, please click the "Next" button.
+                </strong>
+            </p>
+            <div class=" btn-group">
+                <a href="/MyInfo" class="btn btn-primary" style="width: 290px">Next</a>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+   Html.RenderPartial("/Views/Shopping/_EmptyCart.cshtml");
+}

@@ -1,0 +1,46 @@
+﻿@using Newtonsoft.Json;
+@using Livis.Market.Models.ViewModel;
+@model ProductView[]
+@{
+    ViewData["Title"] = "List Product";
+    Layout = "/Views/Shared/_LisvisServerLayout.cshtml";
+}
+<script src="~/LivisServer/js/list_product.js"></script>
+<input type="hidden" id="data" class="form-control"
+       value="@JsonConvert.SerializeObject(Model)" />
+<div class="container">
+    <div class="row">
+        <div class="info-body">
+            <div class="box box-primary">
+                <div class="box-header clearfix">
+                    <h3 class="box-title">@ViewData["Title"]</h3>
+                </div>
+                <div class="box-body">
+                    <div class="table-responsive">
+                        <table id="products" class="display table table-striped table-bordered dataTable"></table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="delModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-center">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="delModalLabel">Confirmation</h4>
+            </div>
+
+            <div class="modal-body text-center">
+                <p>Are you sure ?</p>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-cancel" data-dismiss="modal">Cancel</button>
+                <a class="btn btn-danger btn-ok">Delete</a>
+            </div>
+        </div>
+    </div>
+</div>

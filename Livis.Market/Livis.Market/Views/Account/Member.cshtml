@@ -1,0 +1,14 @@
+﻿@using Livis.Market.Models.ViewModel
+@model AgencyViewModel
+
+@if (Model.CustomerGroup == Livis.Market.Data.CustomerGroup.Agency)
+{
+    @Html.Partial("/Views/Account/_AgencyFormSection.cshtml", Model)
+}
+else
+{
+    @if (Model.CustomerGroup == Livis.Market.Data.CustomerGroup.Customer)
+    {
+        @Html.Partial("/Views/Account/_CustomerFormSection.cshtml", Model)
+    }
+}

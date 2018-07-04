@@ -1,0 +1,51 @@
+﻿@using Livis.Market.Infrastructure.Constants;
+@model Livis.Market.Models.ViewModel.LayoutViewModel
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@Model.Title</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Livis" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <title>@Model.Title</title>
+
+    <environment include="Development">
+        <link rel="stylesheet" href="~/css/Editor.css" />
+        <link rel="stylesheet" href="~/css/main.css" />
+        <link rel="stylesheet" href="~/css/livis.css" />
+        <link rel="stylesheet" href="~/lib/nicelabel/css/jquery-nicelabel.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="~/css/Editor.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/main.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/livis.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/lib/nicelabel/css/jquery-nicelabel.css" asp-append-version="true" />
+    </environment>
+</head>
+<body>
+    @{ Html.RenderPartial("/Views/Shared/Header/Index.cshtml", Model.Header); }
+
+    @RenderBody()
+
+    @{ Html.RenderPartial("/Views/Shared/Footer/Index.cshtml", Model.Footer); }
+
+    <a class="to-top hidden-sm-down" href=""> <img class="image-svg" src="~/images/caret_top.svg" alt="">@HomePage.Index.Top</a>
+
+
+    <script src="~/js/jquery.min.js"></script>
+    <script src="~/js/tether.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/moment.min.js"></script>
+    <script src="~/js/bootstrap-datetimepicker.js"></script>
+    <script src="~/js/main.js"></script>
+    <script src="~/lib/nicelabel/js/jquery.nicelabel.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,87 @@
+﻿@using Livis.Market.Infrastructure.Constants;
+@model Livis.Market.Models.ViewModel.ComponentViewModels.HeaderViewModel
+@{
+    Layout = null;
+}
+
+<header class="page-header">
+    <nav class="navbar navbar-toggleable-lg navbar-inverse">
+        <div class="container">
+            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span> @Header.Index.Login
+            </button>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarUserMenu" aria-controls="navbarUserMenu" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-login-icon"></span> @Header.Index.Menu
+                </button>
+            }
+            <a class="navbar-brand" href="/">
+                <img height="100px" width="100px" src="@Model.LogoImageHeader.ToString()" alt="">
+            </a>
+
+            <div class="navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    @foreach (var linkItem in Model.NavigationLinksAreaHeader)
+                    {
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="@linkItem.Target.ToString()" id="navbarDropdownMenuLink">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">@linkItem.Title</font>
+                                </font>
+                            </a>
+                        </li>
+                    }
+  
+                    <li class="nav-item text-left text-xl-right">
+                            @Html.Partial("/Views/Shared/PartialView/_MembershipHeaderViewModel.cshtml",
+                           Model.MembershipHeaderViewModel)
+                    </li>
+                </ul>
+            </div>
+            <div class="navbar-collapse hidden-xl-up" id="navbarUserMenu">
+                <div class="dropdown-mobile-title">Welcome,</div>
+                <div class="dropdown-menu-mobile">
+                    @if (Model.MembershipHeaderViewModel.MenuItemMembershipHeader != null)
+                    {
+                        foreach (var linkItem in Model.MembershipHeaderViewModel.MenuItemMembershipHeader)
+                        {
+                             <a class="dropdown-item dropdown-item-control" href="@linkItem.Target.ToString()">
+                                <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@linkItem.Title</font></font></a>
+                        }
+                    }
+
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item dropdown-item-control" href="@Model.MembershipHeaderViewModel.LoginLink.ToString()">
+                        @Header.Index.Logout
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+</header>
+<div class="jumbotron text-center">
+    <div class="container">
+        <div id="MiniCart">
+
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <h3 class="modal-title" id="exampleModalLabel">@MembershipHeader.Modal.HeaderText</h3>
+            <div class="modal-body">
+                <p>
+                    @MembershipHeader.Modal.DescriptionText
+                </p>
+                <h5>@MembershipHeader.Modal.StatementText</h5>
+            </div>
+            <div class="modal-footer">
+                <a href="@Model.MembershipHeaderViewModel.LoginLink.ToString()" class="btn btn-primary">@MembershipHeader.Modal.YesButtonText</a>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">@MembershipHeader.Modal.NoButtonText</button>
+            </div>
+        </div>
+    </div>
+</div>

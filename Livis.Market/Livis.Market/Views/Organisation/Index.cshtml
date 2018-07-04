@@ -1,0 +1,27 @@
+﻿@using Newtonsoft.Json;
+@model IEnumerable<Livis.Market.Models.ViewModel.OrganisationViewModel>
+
+@{
+    ViewData["Title"] = "List Organisation";
+    Layout = "/Views/Shared/_LisvisServerLayout.cshtml";
+}
+
+<script src="~/LivisServer/js/list_organisation.js"></script>
+<input type="hidden" id="data" class="form-control"
+       value="@JsonConvert.SerializeObject(Model)" />
+<div class="container">
+    <div class="row">
+        <div class="info-body">
+            <div class="box box-primary">
+                <div class="box-header clearfix">
+                    <h3 class="box-title">@ViewData["Title"]</h3>
+                </div>
+                <div class="box-body">
+                    <div class="table-responsive">
+                        <table id="organisations" class="display table table-striped table-bordered dataTable"></table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

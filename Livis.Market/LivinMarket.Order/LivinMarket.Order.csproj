@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="CommandValidators\Business\Rules\" />
+    <Folder Include="Exceptions\Business\" />
+    <Folder Include="QueryValidators\Rules\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="4.6.2" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Livis.Market.All\Livis.Market.All.csproj" />
+    <ProjectReference Include="..\Livis.Market.Data\Livis.Market.Data.csproj" />
+    <ProjectReference Include="..\Livis.Market.Utilities\Livis.Market.Utilities.csproj" />
+  </ItemGroup>
+
+</Project>

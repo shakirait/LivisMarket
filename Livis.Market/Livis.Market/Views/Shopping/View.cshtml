@@ -1,0 +1,146 @@
+﻿@using Livis.Market.Models.ViewModel
+@using Newtonsoft.Json;
+@model ShoppingProductViewModel
+
+<style>
+    .img-responsive {
+        display: block;
+        height: auto;
+        max-width: 100%;
+        margin: 0 auto;
+        margin-bottom: 15px;
+    }
+
+    .line-responsive {
+        display: block;
+        height: auto;
+        max-width: 50%;
+        margin: 0 auto;
+        margin-bottom: 15px;
+    }
+
+    .line-responsive-option {
+        display: block;
+        height: auto;
+        max-width: 80%;
+        margin: 0 auto;
+        margin-bottom: 15px;
+    }
+
+    .text_radio {
+        float: left;
+        margin-left: 20px;
+    }
+</style>
+<section class="all-poducts">
+    <div class="container">
+        <div class="tab-content">
+            <div class="tab-pane active" role="tabpanel" aria-expanded="true">
+                <div class="row all-poducts-item">
+                    <div class="col-sm-6 text-center">
+                        @{
+                            if (Model.Variants != null && Model.Variants.Count > 0)
+                            {
+                                for (int i = 0; i < Model.Variants.Count; i++)
+                                {
+                                    var variantImage = $"variantImange{i}";
+                                    <div class="col-sm-12 text-center">
+                                        <img src="@Model.Variants[i].BlockUrl" alt="@Model.Name" class="img-responsive @variantImage">
+                                    </div>
+                                }
+                            }
+                            else
+                            {
+                                foreach (var photo in Model.Photos)
+                                {
+                                    <div class="col-sm-12 text-center">
+                                        <img src="@photo" alt="@Model.Name" class="img-responsive center-block" />
+                                    </div>
+                                }
+                            }
+                        }
+
+                    </div>
+                    <div class="col-sm-6 all-poducts-box ">
+                        <div class="all-poducts-title text-primary ">@Model.Name</div>
+                        @using (Html.BeginForm("AddToCart", "Shopping", FormMethod.Post, new { data_container = "MiniCart" }))
+                        {
+                            <div class="lead-md text-center">
+                                <div>
+                                    List price: <span class="text-primary">@Model.Price</span>
+                                </div>
+                            </div>
+                            if (Model.Options != null && Model.Options.Count > 0)
+                            {
+                                for (int i = 0; i < Model.Options.Count; i++)
+                                {
+                                    <div class="lead-md text-center">
+                                        <center class="line-responsive"><hr></center>
+                                    </div>
+                                    <div class="lead-md text-center">
+                                        <div>
+                                            <span class="option text-regular mr-3 mb-0 ">
+                                                @Model.Options[i].Name
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="lead-md text-center ">
+                                        @{
+                                            var values = Model.Options[i].Values.Split(",");
+                                            var key = $"text_radio_{i}";
+                                        }
+                                        <div id="@key" class="line-responsive-option">
+                                            @for (int j = 0; j < values.Length; j++)
+                                            {
+                                                if (j == 0)
+                                                {
+                                                    <input class="text-nicelabel" data-nicelabel='{"position_class": "text_radio", "checked_text": "@values[j]", "unchecked_text": "@values[j]"}' checked type="radio" name="@key" />
+                                                }
+                                                else
+                                                {
+                                                    <input class="text-nicelabel" data-nicelabel='{"position_class": "text_radio", "checked_text": "@values[j]", "unchecked_text": "@values[j]"}' type="radio" name="@key" />
+                                                }
+
+                                            }
+                                        </div>
+                                    </div>
+                                    <div style="clear:both"></div>
+                                }
+                            }
+
+                            <div class="lead-md text-center">
+                                <div class="form-group d-flex align-items-center mb-3 mb-sm-0 text-center ">
+                                    <span class="text-regular mr-3 mb-0 ">
+                                        Quantity
+                                    </span>
+                                    <input type="number" name="quantity" min="1" class="form-control" id="quantity" value="1">
+                                </div>
+                            </div>
+                            @Html.Hidden("sku", Model.Sku);
+                            <input type="hidden" id="variantKeys" class="form-control"
+                                   value="@JsonConvert.SerializeObject(Model.Variants)" />
+                            <a href="" class="btn btn-primary btn-block btn-md jsAddToCart">ADD TO CART</a>
+                        }
+                        <div class="lead-md ">
+                            <div>
+                                @Html.Raw(Model.Description)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+<div style="clear:both"></div>
+<script src="~/js/Cart.js"></script>
+@section scripts
+    {
+    <script>
+        $(document).ready(function () {
+            jQuery('div[id ^= "text_radio"] > input').nicelabel({
+                uselabel: false
+            });
+            Cart.init();
+        });
+    </script>
+}

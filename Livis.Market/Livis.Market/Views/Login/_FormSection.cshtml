@@ -1,0 +1,36 @@
+﻿@using Livis.Market.Infrastructure.Constants
+@using Livis.Market.Models.ViewModel
+@model LoginViewModel
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="cart-table-box">
+                @using (Html.BeginForm("Index", "Login", FormMethod.Post, new { @class = "login-form" }))
+                {
+                    <div class="form-group">@Html.ValidationSummary(true)</div>
+                    <div class="form-group">
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @required = "true", @placeholder = Login._FormSection.EmailText })
+                        <p class="lead-xs">@Html.ValidationMessageFor(m => m.Email) </p>
+                        <p class="lead-xs">@Login._FormSection.EmailHelpText  </p>
+                    </div>
+                    <div class="form-group">
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", @required = "true", @placeholder = Login._FormSection.PasswordText })
+                        <p class="lead-xs">@Html.ValidationMessageFor(m => m.Password)</p>
+                        <p class="lead-xs"><a href="@Model.ResetPasswordUrl">@Login._FormSection.PasswordHelpText</a> </p>
+                    </div>
+                    @Html.HiddenFor(x => x.ReturnUrl)
+                    <button type="submit" class="btn btn-primary btn-sm">@Login._FormSection.ButtonText</button>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="text-center container-fixed-sm">
+        <div class="row">
+            <div class="col-sm-8 offset-sm-2">
+                <a href="@Model.RegistrationUrl"  class="btn btn-primary btn-sm btn-block mb-5">@Login._FormSection.RegistrationButtonText</a>
+            </div>
+        </div>
+ 
+    </div>
+</div>

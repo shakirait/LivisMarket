@@ -1,0 +1,45 @@
+﻿@using Livis.Market.Models.ViewModel
+
+@model ProductShoppingViewModel[]
+@{
+    Layout = null;
+}
+<style>
+    .img-responsive {
+        display: block;
+        height: auto;
+        max-width: 100%;
+        margin: 0 auto;
+        min-height: 250px;
+        max-height: 250px;
+    }
+    .title-product {
+        min-height: 50px;
+        max-height: 50px;
+    }
+
+    .Image {
+        padding: 15px;
+    }
+</style>
+@{
+    foreach (var item in Model)
+    {
+        <div class="col-md-4 all-poducts-item float-left">
+            @{
+                <div class="col-md-12">
+                    <div class="Image">
+                        <a href="@Url.Action("View", "Shopping", new { sku = item.Sku })">
+                            <img src="@item.Image" alt="@item.Name" class="img-responsive center-block">
+                        </a>
+                    </div>
+                    <div class="lead-md text-center title-product">
+                        <a href="@Url.Action("View", "Shopping", new { sku = item.Sku })"><span>@item.Name</span></a>
+                        <br />
+                        <a href="@Url.Action("View", "Shopping", new { sku = item.Sku })"><span>@item.Price</span></a>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+}

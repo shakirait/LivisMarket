@@ -1,0 +1,73 @@
+﻿@using Livis.Market.Models.ViewModel;
+@using Livis.Market.Infrastructure.Constants
+@model ResetPasswordViewModel
+
+@{
+    if (TempData["HasResetPasswordForUser"] != null)
+    {
+        <div class="container">
+            @{
+                Html.RenderPartial("/Views/ResetPassword/_Success.cshtml", TempData["HasResetPasswordForUser"].ToString());
+            }
+        </div>
+    }
+    else
+    {
+        <section class="forgot-section pb-0">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <h2 class="text-regular title-bordered">
+                            @ResetPassword.Index.Title
+                        </h2>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="forgot-panel text-left text-center">
+                    <p class="lead-xs mb-0">@ResetPassword.Index.Statement1</p>
+                    <p class="lead-xs text-primary">@ResetPassword.Index.Statement2</p>
+                    <form action="@Url.Action("ResetPassword", "ResetPassword")" method="post">
+                        <div class="form-group text-left">
+                            @Html.TextBoxFor(x => x.Email, new
+                            {
+                                required = "true",
+                                type = "Email",
+                                @class = "form-control",
+                                @placeholder = ResetPassword.Index.EmailPlaceHolder
+                            })
+                            <p id="" class="lead-xs">@ResetPassword.Index.Example</p>
+                        </div>
+                        <input type="button" id="btn-submit-form-button" value="@ResetPassword.Index.SendButton"
+                               class="btn btn-primary btn-block btn-md">
+                        <input type="submit" id="btn-real-submit-form-button" style="display: none" />
+                    </form>
+                </div>
+            </div>
+        </section>
+@section scripts{
+            <script type="text/javascript">
+        $(document).ready(function () {
+            function setCustomValidityEmailMessages() {
+                var input = document.getElementById("Email");
+                if (input.validity.valueMissing) {
+                    input.setCustomValidity('@ResetPassword.Index.RequiredEmailValidationMessage');
+                    return;
+                }
+                if (input.validity.typeMismatch) {
+                    input.setCustomValidity('@ResetPassword.Index.MismatchEmailValidatationMessage');
+                    return;
+                }
+                input.setCustomValidity("");
+            }
+
+            $('#btn-submit-form-button').on('click',
+                function () {
+                    setCustomValidityEmailMessages();
+                    $('#btn-real-submit-form-button').click();
+                });
+        });
+            </script>
+        }
+    }
+}

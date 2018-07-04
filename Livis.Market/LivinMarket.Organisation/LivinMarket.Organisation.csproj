@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Livis.Common\Livis.Common.csproj" />
+    <ProjectReference Include="..\Livis.Market.All\Livis.Market.All.csproj" />
+    <ProjectReference Include="..\Livis.Market.Data\Livis.Market.Data.csproj" />
+    <ProjectReference Include="..\Livis.Market.Utilities\Livis.Market.Utilities.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="QueryValidators\Rules\" />
+  </ItemGroup>
+
+</Project>

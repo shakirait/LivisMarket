@@ -1,0 +1,10 @@
+﻿@model Livis.Market.Models.ViewModel.MiniCartViewModel
+
+@if (Model != null && Model.ItemCount != 0)
+{
+    <a class="btn-primary" href="@Model.UrlCheckout" id="shoppingCartLink">
+        <div class="cart">
+            <img src="../img/cart_white.svg" alt=""><span>@Model.ItemCount.ToString("0")</span>
+        </div>
+    </a>
+}

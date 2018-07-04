@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="6px" height="6px" viewBox="0 0 6 6" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 44.1 (41455) - http://www.bohemiancoding.com/sketch -->
+    <title>dropdown_arrow_up</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="nav_logged_in" transform="translate(-1323.000000, -67.000000)" fill="#FFFFFF">
+            <g id="nav">
+                <g id="dropdown_arrow_down_white" transform="translate(1323.000000, 67.000000)">
+                    <polygon id="Triangle-Copy" transform="translate(3.000000, 3.000000) scale(1, -1) translate(-3.000000, -3.000000) " points="3 0 4.69199219 3.38398438 6 6 0 6"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,37 @@
+﻿@using Livis.Market.Models.ViewModel
+@model CartViewModel
+
+<div class="tab-content">
+    <div class="tab-pane active" id="shopping" role="tabpanel" aria-expanded="true">
+        <section class="cart-top pb-0">
+            <div class="container-sm">
+                <div class="row">
+                    <div class="col-md-12">
+                        @{
+                            Html.RenderPartial("/Views/Shopping/_CheckoutProcessing.cshtml", Model);
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content">
+                <div class="container-sm">
+                    <div class="row">
+                        <div class="col-md-12" id="shippingCart">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<script src="~/js/Cart.js"></script>
+@section scripts
+    {
+    <script>
+        $(document).ready(function () {
+            Cart.init();
+            Cart.shippingCart();
+        });
+    </script>
+}

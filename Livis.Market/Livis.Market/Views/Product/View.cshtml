@@ -1,0 +1,223 @@
+﻿@using Newtonsoft.Json;
+@using Livis.Market.Models.ViewModel;
+@model ProductViewModel
+@{
+    ViewData["Title"] = "View Product";
+    Layout = "/Views/Shared/_LisvisServerLayout.cshtml";
+    int photoIndex = 0;
+}
+<style type="text/css">
+    .scrollContent {
+        overflow-x: hidden;
+        overflow-y: visible;
+        height: 100px;
+        float: left;
+    }
+
+    .image_picker_image{
+        width: 100px;
+        height: 100px;
+    }
+    .options{
+        height: 250px;
+    }
+    .table-responsive {
+        height: 400px;
+    }
+    .tag > span{
+        display:none;
+    }
+    .bootstrap-tagsinput > input{
+        display: none;
+    }
+</style>
+<script src="~/LivisServer/js/init_product.js"></script>
+<div class="container">
+    <div class="row">
+        <div class="info-body">
+            <div class="box box-primary">
+                <div class="box-header clearfix">
+                    <h3 class="box-title">@ViewData["Title"]</h3>
+                </div>
+                <div class="box-body">
+                
+     <div class="form-group col-md-12">
+         <a href="/Product/Update?sku=@Model.Sku" class="btn btn-primary">
+             Swith to Edit mode
+         </a>
+    </div>
+  
+    <div class="col-md-6">
+        <div class="form-group col-md-12">
+            <input type="hidden" id="variantKeys" class="form-control" 
+                   value="@JsonConvert.SerializeObject(Model.Variants)" />
+            <label asp-for="Sku" class="col-md-12 control-label"></label>
+            <div class="col-md-12">
+                <input asp-for="Sku" class="form-control" readonly="readonly" />
+                <span asp-validation-for="Sku" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group col-md-12">
+        <label asp-for="OriginalLinks" class="col-md-12 control-label"></label>
+        <div class="col-md-12">
+            <input asp-for="OriginalLinks" class="form-control" readonly="readonly" />
+            <span asp-validation-for="OriginalLinks" class="text-danger"></span>
+        </div>
+    </div>
+         <div class="form-group col-md-12">
+            <label asp-for="Videos" class="col-md-12 control-label"></label>
+            <div class="col-md-12">
+                <input asp-for="Videos" class="form-control" readonly="readonly" />
+            </div>
+        </div>
+        <div class="form-group col-md-12">
+            <label asp-for="Resources" class="col-md-12 control-label"></label>
+            <div class="col-md-12">
+                <input asp-for="Resources" class="form-control" readonly="readonly" />
+            </div>
+        </div>
+    <div class="form-group col-md-12">
+        <label asp-for="Name" class="col-md-12 control-label"></label>
+        <div class="col-md-12">
+            <input asp-for="Name" class="form-control" required="true" readonly="readonly" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group col-md-12">
+        <label asp-for="Category" class="col-md-12 control-label"></label>
+        <div class="col-md-12">
+            <table class="table borderless">
+                <tr>
+                    @{
+                        int cnt = 0;
+                        CategoryModel[] categories = ViewBag.Categories;
+
+                        foreach (var item in categories)
+                        {
+                            if (cnt++ % 4 == 0)
+                            {
+                               @:</tr><tr>
+                            }
+                            @:<td>
+                                <input type="radio" disabled="disabled"
+                                       asp-for="CategoryId"
+                                       value="@item.CategoryId"
+                                         @(Html.Raw(Model.CategoryId == item.CategoryId ? "checked=\"checked\"" : ""))/>
+                                       @item.Name
+                            @:</td>
+                        }
+                     @:</tr>
+                    }
+            </table>
+        </div>
+    </div>
+    <div class="form-group col-md-12">
+        <div class="col-md-3"><label asp-for="Length" class="control-label"></label></div>
+        <div class="col-md-3"><label asp-for="Width" class="control-label"></label></div>
+        <div class="col-md-3"><label asp-for="Height" class="control-label"></label></div>
+        <div class="col-md-3"><label asp-for="Weight" class="control-label"></label></div>
+    </div>
+    <div class="form-group col-md-12">
+        <div class="col-md-3"><input type="number" readonly="readonly" asp-for="Length" class="form-control" step="any" /></div>
+        <div class="col-md-3"><input type="number" readonly="readonly" asp-for="Width" class="form-control" step="any" /></div>
+        <div class="col-md-3"><input type="number" readonly="readonly" asp-for="Height" class="form-control" step="any" /></div>
+        <div class="col-md-3"><input type="number" readonly="readonly" asp-for="Weight" class="form-control" step="any" required="true" /></div>
+    </div>
+    <div class="form-group col-md-12">
+        <div class="col-md-6"><label asp-for="Cost" class="control-label"></label></div>
+        <div class="col-md-6"><label asp-for="SuggestedPrice" class="control-label"></label></div>
+    </div>
+    <div class="form-group col-md-12">
+        <div class="col-md-6"><input type="number" readonly="readonly" asp-for="Cost" required="true" class="form-control" step="any" /></div>
+        <div class="col-md-6"><input type="number" readonly="readonly" asp-for="SuggestedPrice" required="true" class="form-control" step="any" /></div>
+    </div>
+    <div class="form-group col-md-12">
+        <label asp-for="Description" class="col-md-12 control-label"></label>
+        <div class="col-md-12">
+            <textarea asp-for="Description" id="rtxDescription" required="true" readonly="readonly"></textarea>
+        </div>
+    </div>
+    <div class="form-group col-md-12">
+        <br />
+        <a href="/Product/Update?sku=@Model.Sku" class="btn btn-primary">
+            Swith to Edit mode
+        </a>
+        <br />
+    </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group col-md-12">
+            <label asp-for="Photos" class="col-md-12 control-label"></label>
+            <div style="display:none">
+                <input id="filesPhotos" readonly="readonly" type="file" class="form-control" onchange="previewFiles(this, 1)" multiple />
+            </div>
+        </div>
+        <div id="divPreviewPhotos" class="photo-review form-group col-md-12 scrollContent">
+             @foreach (var item in Model.Photos)
+             {
+                <div><img class="img-thumbnail" src="@item.BlobUrl" style="height:100px"></div>
+             }
+        </div>
+        <div id="hdImg" style="display:none">
+            @foreach (var item in Model.Photos)
+            {
+                <input name="Photos[@photoIndex].BlobUrl" type="hidden" value="@item.BlobUrl">
+                photoIndex++;
+            }
+        </div>
+        <div class="form-group col-md-12">
+            <label asp-for="PartnerPhotos" class="col-md-12 control-label"></label>
+            <div style="display:none">
+                <input id="filesPartnerPhotos" type="file" class="form-control" onchange="previewFiles(this, 2)" multiple />
+            </div>
+        </div>
+        <div id="divPreviewPartnerPhotos" class="photo-review form-group col-md-12 scrollContent">
+            @foreach (var item in Model.PartnerPhotos)
+            {
+                <div><img class="img-thumbnail" src="@item.BlobUrl" style="height:100px"></div>
+            }
+        </div>
+        <div id="hdPartnerImg" style="display:none">
+            @{ photoIndex = 0;}
+            @foreach (var item in Model.PartnerPhotos)
+            {
+                <input name="PartnerPhotos[@photoIndex].BlobUrl" type="hidden" value="@item.BlobUrl">
+                photoIndex++;
+            }
+        </div>
+        <div class="form-group col-md-12">
+            <div style="display:none">
+                <input id="filesPartnerPhotos" type="file" class="form-control" onchange="previewFiles(this, 2)" multiple />
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <label class="col-md-9 control-label">Options</label>
+        <div class="row scrollContent options col-md-12">
+            @foreach (var option in Model.Options)
+            {
+                <fieldset class='col-md-12 optiondetail'>
+                    <legend align='right'></legend>
+                    <div class='control-group'>
+                        <div class='form-group col-md-12'>
+                            <input type='text' readonly="readonly" class='optionName form-control' placeholder='Name' value="@option.Name" />
+                            <input type='text' readonly="readonly" class='optionValue form-control' data-role='tagsinput' placeholder='Values' value="@option.Values" />
+                        </div>
+                    </div>
+                </fieldset>
+            }
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="scrollContent table-responsive col-md-12" >
+            <table id="variants" class="display table table-striped table-bordered dataTable col-md-12"></table>
+        </div>
+    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="clear:both"></div>
+

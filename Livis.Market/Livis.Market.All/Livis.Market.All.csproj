@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Livis.Market.Caching\Livis.Market.Caching.csproj" />
+    <ProjectReference Include="..\Livis.Market.Postprocessing\Livis.Market.Postprocessing.csproj" />
+    <ProjectReference Include="..\Livis.Market.Preprocessing\Livis.Market.Preprocessing.csproj" />
+    <ProjectReference Include="..\Livis.Market.Validation\Livis.Market.Validation.csproj" />
+  </ItemGroup>
+
+</Project>

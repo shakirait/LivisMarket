@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Livis Server</title>
+
+    <environment include="Development">
+        <link rel="stylesheet" href="~/LivisServer/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/LivisServer/css/site.css" />
+   
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
+              asp-fallback-href="~/LivisServer/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="~/LivisServer/css/site.min.css" asp-append-version="true" />
+    </environment>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a asp-area="" asp-controller="LivisServer" asp-action="Index" class="navbar-brand">Livis Server</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a asp-area="" asp-controller="Product" asp-action="Index">Product List</a></li>
+                    <li><a asp-area="" asp-controller="Product" asp-action="Create">Create Product</a></li>
+                    <li><a asp-area="" asp-controller="Organisation" asp-action="Index">Organisation List</a></li>
+                    <li><a asp-area="" asp-controller="Organisation" asp-action="Create">Create Organisation</a></li>
+                    <li><a asp-area="" asp-controller="FindUser" asp-action="Index">Search User</a></li>
+                    <li><a asp-area="" asp-controller="Account" asp-action="Logout">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; 2018 - Livis Server</p>
+        </footer>
+    </div>
+
+    <environment include="Development">
+        <script src="~/LivisServer/lib/jquery/dist/jquery.js"></script>
+        <script src="~/LivisServer/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/LivisServer/lib/ckeditor/ckeditor.js"></script>
+        <script src="~/LivisServer/lib/ckeditor/adapters/jquery.js"></script>
+        <script src="~/LivisServer/js/site.js" asp-append-version="true"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery"
+                crossorigin="anonymous"
+                integrity="sha384-K+ctZQ+LL8q6tP7I94W+qzQsfRV2a+AfHIi9k8z8l9ggpc8X+Ytst4yBo/hH+8Fk">
+        </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                crossorigin="anonymous"
+                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
+        </script>
+        <script src="~/LivisServer/js/site.min.js" asp-append-version="true"></script>
+    </environment>
+    <link rel="stylesheet" href="~/LivisServer/lib/image-picker/image-picker.css">
+    <script src="~/LivisServer/lib/image-picker/image-picker.js"></script>
+    <link rel="stylesheet" href="~/LivisServer/lib/datatables-1.10.16/datatables.min.css">
+    <script src="~/LivisServer/lib/datatables-1.10.16/datatables.min.js"></script>
+    <link rel="stylesheet" href="~/LivisServer/lib/bootstrap-tagsinput.css">
+    <script src="~/LivisServer/lib/bootstrap-tagsinput.js"></script>
+    <link rel="stylesheet" href="~/LivisServer/lib/color-picker/css/bootstrap-colorpicker.min.css">
+    <script src="~/LivisServer/lib/color-picker/js/bootstrap-colorpicker.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

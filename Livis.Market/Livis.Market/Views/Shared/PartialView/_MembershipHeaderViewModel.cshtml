@@ -1,0 +1,43 @@
+﻿@using Livis.Market.Infrastructure.Constants
+@model Livis.Market.Models.ViewModel.MembershipHeaderViewModel
+
+@if (User.Identity.IsAuthenticated)
+{
+    if (Model.IsLevisUser)
+    {
+        <br />
+    }
+    else
+    {
+        <a class="header-link btn-link-primary" data-toggle="modal" data-target="#myModal">@MembershipHeader.ForWHOSaler</a>
+    }
+    <a class="btn-link-primary hidden-xl-up" href="">@MembershipHeader.Login</a>
+    <div class="dropdown dropdown-control hidden-lg-down">
+        <a href="" class="nav-btn btn btn-sm btn-primary" id="navbarDropdownUserLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            @MembershipHeader.WelcomeText
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownUserLink">
+            @if (Model.MenuItemMembershipHeader != null)
+            {
+                foreach (var linkItem in Model.MenuItemMembershipHeader)
+                {
+                    <a class="dropdown-item dropdown-item-control" href="@linkItem.Target.ToString()">
+                        <font style="vertical-align: inherit"><font style="vertical-align: inherit">@linkItem.Title</font></font></a>
+                }
+            }
+
+            <div class="dropdown-divider"></div>
+            @Html.ActionLink("Logout", "Logout", "Account", null, new { @class = "dropdown-item dropdown-item-control" })
+        </div>
+    </div>
+}
+else
+{
+    <a class="header-link btn-link-primary" data-toggle="modal" data-target="#myModal">@MembershipHeader.ForWHOSaler</a>
+    <a class="btn-link-primary hidden-xl-up" href="@Model.LoginLink.ToString()">@MembershipHeader.Login</a>
+    <div class=" dropdown-control  hidden-lg-down">
+        <a href="@Model.LoginLink.ToString()" class="nav-btn btn btn-sm btn-primary">
+            <img class="float-left" src="~/images/login_icon_desktop.svg" height="14" width="14" alt=""> @MembershipHeader.Login
+        </a>
+    </div>
+}

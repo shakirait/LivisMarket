@@ -1,0 +1,58 @@
+﻿@model Livis.Market.Models.ViewModel.FooterViewModel
+
+@{
+    Layout = null;
+    var footerMenu = Model.NavigationLinksAreaFooter.GroupBy(x => x.Group, (key, g) => new { GroupName = key, Links = g.ToArray() });
+}
+
+<footer class="page-footer">
+    <div class="container">
+        <div class="row footer-top">
+            @foreach(var social in Model.SocialFooter)
+            {
+                <div class="col-6">
+                    <a class="@social.Title" href="@social.Target.ToString()"></a>
+                    <div class="text-center text-md-left">
+                        @Html.Raw(social.Description)
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="footer-wrapper">
+            <div class="row">
+                <div class="col-md-4 push-md-8 text-center text-md-right text-slim">
+                    <div class="footer-info">
+                        <div class="text-slim">
+                            <p class="text-slim"><font style="vertical-align: inherit;">
+                                <font style="vertical-align: inherit;">@Model.CustomerServiceFooter.Alias &nbsp; </font></font><br>
+                                <font style="vertical-align: inherit;">
+                                <font style="vertical-align: inherit;">@Model.CustomerServiceFooter.OpenTime</font></font></p>
+                        </div>
+                        <a class="phone-link" href="tel:@Model.CustomerServiceFooter.Tel"><font style="vertical-align: inherit;">
+                                <font style="vertical-align: inherit;">@Model.CustomerServiceFooter.Tel</font></font></a>
+                    </div>
+                </div>
+                <div class="col-md-8 pull-md-4  text-sm">
+                    @foreach(var menu in footerMenu)
+                    {
+                        <h6 class="footer-page-title"><font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">@menu.GroupName</font></font></h6>
+                        <ul class="nav-inline">
+                            @foreach(var link in menu.Links)
+                            { 
+                                <li>
+                                    <a class="btn-link-primary" href="@link.Target.ToString()">
+                                    <font style="vertical-align: inherit;">
+                                     <font style="vertical-align: inherit;">@link.Title</font></font></a>
+                                </li>
+                            }
+                        </ul>
+                    }
+                </div>
+                <div class="col-md-12">
+                    <div class="page-footer-copyright text-sm">@Html.Raw(Model.CopyrightTextFooter)</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

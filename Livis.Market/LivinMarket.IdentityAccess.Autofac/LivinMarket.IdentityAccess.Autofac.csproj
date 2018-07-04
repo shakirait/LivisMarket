@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="4.6.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LivinMarket.IdentityAccess\LivinMarket.IdentityAccess.csproj" />
+    <ProjectReference Include="..\Livis.Market.All\Livis.Market.All.csproj" />
+    <ProjectReference Include="..\Livis.Market.Autofac\Livis.Market.Autofac.csproj" />
+  </ItemGroup>
+
+</Project>

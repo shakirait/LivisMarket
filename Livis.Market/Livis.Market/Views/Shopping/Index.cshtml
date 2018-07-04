@@ -1,0 +1,27 @@
+﻿@using Livis.Market.Models.ViewModel
+@model ShoppingViewModel
+
+<section class="all-poducts" id="allProducts">
+    <div class="container">
+        <div class="text-center">
+            All
+        </div>
+        <div class="tab-content">
+            <div class="tab-pane active" id="allItem" role="tabpanel" aria-expanded="true">
+                @{
+                    Html.RenderPartial("/Views/Shopping/_CustomerProductType.cshtml", Model.Products);
+                }
+            </div>
+        </div>
+    </div>
+</section>
+<div style="clear:both"></div>
+<script src="~/js/Cart.js"></script>
+@section scripts
+    {
+    <script>
+        $(document).ready(function () {
+            Cart.init();
+        });
+    </script>
+}

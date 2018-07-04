@@ -1,0 +1,34 @@
+// Fonts
+
+@font-face {
+    font-family: 'Kozuka Gothica';
+    src: url('../fonts/KozGoPr6N-Bold-AlphaNum/KozGoPr6N-Bold-AlphaNum.eot?#iefix') format('embedded-opentype'), url('../fonts/KozGoPr6N-Bold-AlphaNum/KozGoPr6N-Bold-AlphaNum.otf')  format('opentype'), url('../fonts/KozGoPr6N-Bold-AlphaNum/KozGoPr6N-Bold-AlphaNum.woff') format('woff'), url('../fonts/KozGoPr6N-Bold-AlphaNum/KozGoPr6N-Bold-AlphaNum.ttf') format('truetype'), url('../fonts/KozGoPr6N-Bold-AlphaNum/KozGoPr6N-Bold-AlphaNum.svg#KozGoPr6N-Bold-AlphaNum') format('svg');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Kozuka Gothica';
+    src: url('../fonts/KozGoPr6N-Medium-AlphaNum/KozGoPr6N-Medium-AlphaNum.eot?#iefix') format('embedded-opentype'), url('../fonts/KozGoPr6N-Medium-AlphaNum/KozGoPr6N-Medium-AlphaNum.otf')  format('opentype'), url('../fonts/KozGoPr6N-Medium-AlphaNum/KozGoPr6N-Medium-AlphaNum.woff') format('woff'), url('../fonts/KozGoPr6N-Medium-AlphaNum/KozGoPr6N-Medium-AlphaNum.ttf') format('truetype'), url('../fonts/KozGoPr6N-Medium-AlphaNum/KozGoPr6N-Medium-AlphaNum.svg#KozGoPr6N-Medium-AlphaNum') format('svg');
+    font-weight: 500;
+    font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'Kozuka Gothica';
+  src: url('../fonts/KozGoPr6N-Regular-AlphaNum/KozGoPr6N-Regular-AlphaNum.eot?#iefix') format('embedded-opentype'), url('../fonts/KozGoPr6N-Regular-AlphaNum/KozGoPr6N-Regular-AlphaNum.otf')  format('opentype'),
+	     url('../fonts/KozGoPr6N-Regular-AlphaNum/KozGoPr6N-Regular-AlphaNum.woff') format('woff'), url('../fonts/KozGoPr6N-Regular-AlphaNum/KozGoPr6N-Regular-AlphaNum.ttf')  format('truetype'), url('../fonts/KozGoPr6N-Regular-AlphaNum/KozGoPr6N-Regular-AlphaNum.svg#KozGoPr6N-Regular-AlphaNum') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
+@font-face {
+  font-family: 'Kozuka Gothica';
+  src: url('../fonts/KozGoPr6N-Light-AlphaNum/KozGoPr6N-Light-AlphaNum.eot?#iefix') format('embedded-opentype'),  url('../fonts/KozGoPr6N-Light-AlphaNum/KozGoPr6N-Light-AlphaNum.otf')  format('opentype'),
+	     url('../fonts/KozGoPr6N-Light-AlphaNum/KozGoPr6N-Light-AlphaNum.woff') format('woff'), url('../fonts/KozGoPr6N-Light-AlphaNum/KozGoPr6N-Light-AlphaNum.ttf')  format('truetype'), url('../fonts/KozGoPr6N-Light-AlphaNum/KozGoPr6N-Light-AlphaNum.svg#KozGoPr6N-Light-AlphaNum') format('svg');
+  font-weight: 300;
+  font-style: normal;
+}

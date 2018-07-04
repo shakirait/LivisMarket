@@ -1,0 +1,172 @@
+﻿
+@using Livis.Market.Models.ViewModel;
+@model OrganisationViewModel
+@{
+    ViewData["Title"] = "Create";
+    Layout = "/Views/Shared/_LisvisServerLayout.cshtml";
+}
+
+<form asp-action="Create" method="post" enctype="multipart/form-data">
+    @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+    {
+        <div class="alert alert-danger">
+            <strong>@ViewBag.ErrorMessage</strong>
+        </div>
+    }
+    <div class="col-md-6">
+        <div class="form-group col-md-12">
+            <label asp-for="RegistrationStatus" class="col-md-12 control-label"></label>
+            <div class="col-md-12">
+                <select asp-for="RegistrationStatus" asp-items="@ViewBag.RegistrationStatus"></select>
+                <span asp-validation-for="RegistrationStatus" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group col-md-12">
+            <label asp-for="ShopName" class="col-md-12 control-label"></label>
+            <div class="col-md-12">
+                <input asp-for="ShopName" class="form-control" />
+                <span asp-validation-for="ShopName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group col-md-12">
+            <label asp-for="WebsiteUrl" class="col-md-12 control-label"></label>
+            <div class="col-md-12">
+                <input asp-for="WebsiteUrl" class="form-control" />
+                <span asp-validation-for="WebsiteUrl" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group col-md-12">
+            <label asp-for="Longtitude" class="col-md-12 control-label"></label>
+            <div class="col-md-12">
+                <input asp-for="Longtitude" class="form-control" />
+                <span asp-validation-for="Longtitude" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group col-md-12">
+            <label asp-for="Latitude" class="col-md-12 control-label"></label>
+            <div class="col-md-12">
+                <input asp-for="Latitude" class="form-control" />
+                <span asp-validation-for="Latitude" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group col-md-12">
+            <label asp-for="PhoneNumber" class="col-md-12 control-label"></label>
+            <div class="col-md-12">
+                <input asp-for="PhoneNumber" class="form-control" required="true" />
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group col-md-12">
+            <label asp-for="OpenTime" class="col-md-12 control-label"></label>
+            <div class="col-md-12">
+                <input asp-for="OpenTime" class="form-control" />
+                <span asp-validation-for="OpenTime" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group col-md-12">
+            <label asp-for="Prefecture" class="col-md-12 control-label"></label>
+            <div class="col-md-12">
+                <input asp-for="Prefecture" class="form-control" required="true" />
+                <span asp-validation-for="Prefecture" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group col-md-12">
+            <label asp-for="City" class="col-md-12 control-label"></label>
+            <div class="col-md-12">
+                <input asp-for="City" class="form-control" required="true" />
+                <span asp-validation-for="City" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group col-md-12">
+            <label asp-for="Street" class="col-md-12 control-label"></label>
+            <div class="col-md-12">
+                <input asp-for="Street" class="form-control" required="true" />
+                <span asp-validation-for="Street" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group col-md-12">
+            <label asp-for="PostCode" class="col-md-12 control-label"></label>
+            <div class="col-md-12">
+                <input asp-for="PostCode" class="form-control" required="true" />
+                <span asp-validation-for="PostCode" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <input class="btn btn-primary" type="submit" value="Send confirmation to Agency" />
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group col-md-12">
+            <label asp-for="BankName" class="col-md-12 control-label"></label>
+            <div class="col-md-12">
+                <input asp-for="BankName" class="form-control" />
+                <span asp-validation-for="BankName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group col-md-12">
+            <label asp-for="BankNumber" class="col-md-12 control-label"></label>
+            <div class="col-md-12">
+                <input asp-for="BankNumber" class="form-control" />
+                <span asp-validation-for="BankNumber" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group col-md-12">
+            <label asp-for="BranchName" class="col-md-12 control-label"></label>
+            <div class="col-md-12">
+                <input asp-for="BranchName" class="form-control" />
+                <span asp-validation-for="BranchName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group col-md-12">
+            <label asp-for="BranchNumber" class="col-md-12 control-label"></label>
+            <div class="col-md-12">
+                <input asp-for="BranchNumber" class="form-control" />
+                <span asp-validation-for="BranchNumber" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group col-md-12">
+            <label asp-for="AccountNumber" class="col-md-12 control-label"></label>
+            <div class="col-md-12">
+                <input asp-for="AccountNumber" class="form-control" />
+                <span asp-validation-for="AccountNumber" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group col-md-12">
+            <label asp-for="AccountHolder" class="col-md-12 control-label"></label>
+            <div class="col-md-12">
+                <input asp-for="AccountHolder" class="form-control" />
+                <span asp-validation-for="AccountHolder" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group col-md-12">
+            <label asp-for="FaxNumber" class="col-md-12 control-label"></label>
+            <div class="col-md-12">
+                <input asp-for="FaxNumber" class="form-control" />
+                <span asp-validation-for="FaxNumber" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group col-md-12">
+            <label asp-for="Email" class="col-md-12 control-label"></label>
+            <div class="col-md-12">
+                <input asp-for="Email" class="form-control" required="true" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group col-md-12">
+            <label asp-for="FirstName" class="col-md-12 control-label"></label>
+            <div class="col-md-12">
+                <input asp-for="FirstName" class="form-control" required="true" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group col-md-12">
+            <label asp-for="LastName" class="col-md-12 control-label"></label>
+            <div class="col-md-12">
+                <input asp-for="LastName" class="form-control" required="true" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+</form>
+    <div style="clear:both"></div>
+

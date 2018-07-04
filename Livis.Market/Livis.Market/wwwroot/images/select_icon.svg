@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="6px" height="16px" viewBox="0 0 6 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 45 (43475) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 2</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="desktop_product" transform="translate(-1122.000000, -3157.000000)" fill="#333333">
+            <g id="subscription" transform="translate(0.000000, 2492.000000)">
+                <g id="widget" transform="translate(980.000000, 274.000000)">
+                    <g id="customization" transform="translate(20.000000, 328.000000)">
+                        <g id="dropdown" transform="translate(0.000000, 41.000000)">
+                            <g id="Group-2" transform="translate(122.000000, 22.000000)">
+                                <g id="dropdown_arrow_down" transform="translate(0.000000, 10.000000)">
+                                    <polygon id="Triangle-Copy" transform="translate(3.000000, 3.000000) scale(1, -1) translate(-3.000000, -3.000000) " points="3 0 6 6 0 6"></polygon>
+                                </g>
+                                <g id="dropdown_arrow_up">
+                                    <polygon id="Triangle" points="3 0 6 6 0 6"></polygon>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

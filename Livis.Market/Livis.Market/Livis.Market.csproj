@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="4.6.2" />
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="4.2.2" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.6" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Cookies" Version="2.1.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LivinMarket.Address.Autofac\LivinMarket.Address.Autofac.csproj" />
+    <ProjectReference Include="..\LivinMarket.Contact.Autofac\LivinMarket.Contact.Autofac.csproj" />
+    <ProjectReference Include="..\LivinMarket.IdentityAccess.Autofac\LivinMarket.IdentityAccess.Autofac.csproj" />
+    <ProjectReference Include="..\LivinMarket.Order.Autofac\LivinMarket.Order.Autofac.csproj" />
+    <ProjectReference Include="..\LivinMarket.Order\LivinMarket.Order.csproj" />
+    <ProjectReference Include="..\LivinMarket.Organisation.Autofac\LivinMarket.Organisation.Autofac.csproj" />
+    <ProjectReference Include="..\LivinMarket.Organisation\LivinMarket.Organisation.csproj" />
+    <ProjectReference Include="..\LivinMarket.Payment.Autofac\LivinMarket.Payment.Autofac.csproj" />
+    <ProjectReference Include="..\LivinMarket.Product.Autofac\LivinMarket.Product.Autofac.csproj" />
+    <ProjectReference Include="..\Livis.Common\Livis.Common.csproj" />
+    <ProjectReference Include="..\Livis.Market.All\Livis.Market.All.csproj" />
+    <ProjectReference Include="..\Livis.Market.Autofac\Livis.Market.Autofac.csproj" />
+    <ProjectReference Include="..\Livis.Market.Data\Livis.Market.Data.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\LivisServer\lib\color-picker\" />
+    <Folder Include="wwwroot\UploadFiles\img\" />
+  </ItemGroup>
+
+</Project>

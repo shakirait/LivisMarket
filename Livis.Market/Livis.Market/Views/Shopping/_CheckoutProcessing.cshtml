@@ -1,0 +1,20 @@
+﻿@using Livis.Market.Models.ViewModel
+@model CartViewModel
+
+<ul class="nav row justify-content-between step-cart hidden-sm-down">
+    <li role="presentation" class="nav-item col step-1">
+        <a class="btn btn-secondary btn-xs btn-block @Model.CssCartClass" href="@Model.LinkCart">Cart</a>
+    </li>
+    <li role="presentation" class="nav-item col step-2">
+        <a class="btn btn-secondary btn-xs btn-block @Model.CssCustomerInfoClass" href="@Model.LinkCustomerInfo">Your information</a>
+    </li>
+    <li role="presentation" class="nav-item col step-3">
+        <a class="btn btn-secondary btn-xs btn-block @Model.CssPaymentMethodClass" href="@Model.LinkPaymentMethod">Payment</a>
+    </li>
+    <li role="presentation" class="nav-item col step-4">
+        <a class="btn btn-secondary btn-xs btn-block @Model.CssConfirmationClass" href="@Model.LinkConfirmation">Confirmation</a>
+    </li>
+    <li role="presentation" class="nav-item col step-5">
+        <a class="btn btn-secondary btn-xs btn-block @Model.CssOrderCompleteClass" href="@Model.LinkOrderComplete">Order complete</a>
+    </li>
+</ul>

@@ -1,0 +1,109 @@
+﻿@using Livis.Market.Infrastructure.Constants;
+@model Livis.Market.Models.ViewModel.MemberRegistrationViewModel
+@using (Html.BeginForm("Index", "Registration", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    <section class="contact-form-section bg-gray-lighter">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-default">
+                        <div class="form-group row">
+                            @Html.ValidationSummary()
+                        </div>
+                        <div class="form-group row">
+                            <label for="example-text-input" class="col-12 col-sm-4 col-form-label label-default">NAME</label>
+                            <div class="col-12 col-sm-8">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="d-flex">
+                                            <label asp-for="LastName"></label>
+                                            <div class="form-control-wrapper">
+                                                <input asp-for="LastName" class="form-control" required="true" />
+                                                <span asp-validation-for="LastName" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="d-flex">
+                                            <label asp-for="FirstName"></label>
+                                            <div class="form-control-wrapper">
+                                                <input asp-for="FirstName" class="form-control" required="true" />
+                                                <span asp-validation-for="FirstName" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label asp-for="PostCode" class="col-12 col-sm-4 col-form-label label-default"></label>
+                            <div class="col-12 col-sm-8">
+                                <div class="d-flex">
+                                    <div>
+                                        <input asp-for="PostCode" class="form-control" required="true" />
+                                        <span asp-validation-for="PostCode" class="text-danger"></span>
+                                        <small>【Example】80331</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="example-text-input" class="col-12 col-sm-4 col-form-label label-default">STREET ADDRESS</label>
+                            <div class="col-12 col-sm-8">
+                                <input asp-for="Prefecture" class="form-control" required="true" />
+                                <span asp-validation-for="Prefecture" class="text-danger"></span>
+                                <small>State / Prefecture 【Example】Berlin</small>
+                            </div>
+                            <div class="col-12 col-sm-8 offset-sm-4 ">
+                                <input asp-for="City" class="form-control" required="true" />
+                                <span asp-validation-for="City" class="text-danger"></span>
+                                <small>City / Town / Village 【Example】 Beneschau</small>
+                            </div>
+                            <div class="col-12 col-sm-8 offset-sm-4 ">
+                                <input asp-for="Street" class="form-control" required="true" />
+                                <span asp-validation-for="Street" class="text-danger"></span>
+                                <small>Street - Building name 【example】 Schulstrasse 4</small>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label asp-for="PhoneNumber" class="col-12 col-sm-4 col-form-label label-default"></label>
+                            <div class="col-12 col-sm-8">
+                                <div class="d-flex">
+                                    <input asp-for="PhoneNumber" class="form-control" required="true" />
+                                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                                </div>
+                                <small>【Example】001-541-754-3010</small>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label asp-for="Email" class="col-12 col-sm-4 col-form-label label-default"></label>
+                            <div class="col-12 col-sm-8">
+                                <input asp-for="Email" class="form-control" required="true" />
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                                <small id="" class="d-block mt-4">For confirmation: please enter same address again</small>
+                                <input asp-for="ConfirmationEmail" class="form-control" required="true" />
+                                <span asp-validation-for="ConfirmationEmail" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label asp-for="Password" class="col-12 col-sm-4 col-form-label label-default"></label>
+                            <div class="col-12 col-sm-6">
+                                <small id="" class="d-block">Alphanumeric characters 4 to 50 letters please.</small>
+                                <input asp-for="Password" class="form-control" required="true" />
+                                <span asp-validation-for="Password" class="text-danger"></span>
+                                <small id="" class="d-block mt-4">Please enter twice for confirmation</small>
+                                <input asp-for="PasswordConfirmation" class="form-control" required="true" />
+                                <span asp-validation-for="PasswordConfirmation" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <div class=" btn-group">
+                                <button href="" class="btn btn-primary" id="btn-submit-form-button-member" type="submit">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+}

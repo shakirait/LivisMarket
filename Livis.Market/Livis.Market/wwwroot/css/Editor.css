@@ -1,0 +1,31 @@
+﻿p {
+    EditMenuName: Normal;
+}
+ul.list {
+    EditMenuName: Animal Paw list;
+}
+
+small {
+    EditMenuName: Small;
+}
+
+h1 {
+    EditMenuTitle: Heading Styles;
+    EditMenuName: Heading 1;
+}
+
+h2 {
+    EditMenuName: Heading 2;
+}
+
+h2.text-regular {
+    EditMenuName: Title Regular;
+}
+
+h2.text-danger {
+    EditMenuName: Title Red;
+}
+
+div.lead-md {
+    EditMenuName: PolicyBlock
+}

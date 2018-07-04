@@ -1,0 +1,229 @@
+.btn-primary {
+    background-color: $link-primary;
+    border-color: $link-primary;
+    color: $white;
+    &:hover {
+        background-color: $link-primary-hover;
+        border-color: $link-primary-hover;
+    }
+    &:active,
+    &:focus {
+        background-color: $link-primary-active;
+        border-color: $link-primary-active;
+        color: $white;
+    }
+}
+
+@mixin btn-primary-sm() {
+
+    display: inline-block;
+    font-weight: normal;
+    line-height: 1.25;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    font-size: 16px;
+    padding: 0.55rem 2rem;
+    border-radius: 0rem;
+    transition: all 0.2s ease-in-out;
+    background-color: #db4a56;
+    border-color: #db4a56;
+    color: #fff;
+}
+
+
+.to-top {
+    position: fixed;
+    bottom: 30px;
+    right: calc( ( 100% - 1080px) / 2);
+    height: 60px;
+    width: 60px;
+    border-radius: 100%;
+    background: $white;
+    border: 1px solid $link-primary;
+    color: $link-primary;
+    text-align: center;
+    line-height: 17px;
+    padding: 12px 0;
+    transition: all 0.3s ease;
+    -webkit-box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.4);
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.4);
+    display: none;
+    z-index: 100;
+    .image-svg {
+        display: block;
+        margin: 0 auto 7px;
+    }
+    &:hover {
+        color: $link-primary-hover;
+        border-color: $link-primary-hover;
+        .replaced-svg {
+            #desktop_main {
+                fill: $link-primary-hover;
+            }
+        }
+    }
+    &:active {
+        color: $link-primary-active;
+        border-color: $link-primary-active;
+        .replaced-svg {
+            #desktop_main {
+                fill: $link-primary-active;
+            }
+        }
+    }
+}
+
+.btn-link-primary,
+.dropdown-item {
+    color: $link-primary;
+    &:hover {
+        color: $link-primary-hover;
+    }
+    &:active {
+        color: $link-primary-active;
+        background-color: transparent;
+    }
+}
+
+.btn-image {
+    margin-top: 10px;
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    border-radius: 100%;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    color: $white;
+    position: relative;
+    background-blend-mode: multiply;
+    text-align: center;
+    &:hover,
+    &:active {
+        color: $white;
+    }
+}
+
+.btn-image-sm {
+    height: 65px;
+    width: 65px;
+    line-height: 65px;
+    font-size: 14px;
+}
+
+.btn-blue {
+    background-color: $blue;
+    color: $white;
+    &:hover {
+        background-color: $blue-hover;
+    }
+    &:active {
+        background-color: $blue-active;
+    }
+}
+
+.btn-cat {
+    @extend .btn-image;
+    @extend .btn-blue;
+    background-image: url(../img/cat_button.png);
+    background-size: 55%;
+    background-color: $blue;
+}
+
+.btn-dog {
+    @extend .btn-image;
+    background-image: url(../img/dog_button.png);
+    background-size: 61%;
+    background-color: $brand-primary;
+    margin-right: 90px;
+    &:hover {
+        background-color: #C8101F;
+    }
+    &:active {
+        background-color: #C43844;
+    }
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    opacity: 1;
+    &:hover {
+        #desktop_main {
+            fill: $link-primary-hover;
+        }
+    }
+    &:active {
+        #desktop_main {
+            fill: $link-primary-active;
+        }
+    }
+}
+
+.btn {
+    cursor: pointer;
+}
+
+.btn-icon {
+    padding-left: 93px;
+    position: relative;
+    img {
+        position: absolute;
+        left: 30px;
+        top: 7px;
+    }
+}
+
+.btn-fixed {
+    width: 387px;
+}
+
+.btn-xs {
+    font-size: 0.875rem;
+    padding: 0.3rem 1.56rem;
+}
+
+.btn-remove {
+    width: 30px;
+    height: 30px;
+    background-color: $gray-dark;
+    display: inline-block;
+    font-size: 18px;
+    line-height: 30px;
+    text-align: center;
+    color: $white;
+    &:hover {
+        color: $white;
+    }
+    @media (max-width: 768px) {
+        width: 25px;
+        height: 25px;
+        line-height: 25px;
+    }
+}
+
+.btn-secondary-2 {
+    @include button-variant($white, #4a4a4a, #4a4a4a);
+}
+
+.input-group-btn {
+    margin-left: 15px;
+    .btn {
+        line-height: 1;
+        margin-bottom: 10px;
+    }
+}
+
+.registartion-box-btn {
+    width: 174px;
+    @media (max-width: 768px) {
+        width: 100%;
+    }
+}
+
+.btn-control {
+    margin: 80px 100px;
+}
